@@ -105,7 +105,29 @@ function hoursToMinutes(array) {
   return copyMovies;
 }
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(array,year) {
+  let moviesYear = array.filter( item => item.year==year ); 
+  let sortmoviesYear = moviesYear.sort(function (a, b) {
+    if (a.score < b.score) {
+      return 1;
+    }
+    if (a.score > b.score) {
+      return -1;
+    }
+    if(a.score == b.score){
+        if (a.title > b.title) {
+            return 1;
+        }
+          if (a.title < b.title) {
+            return -1;
+        }
+        return 0;
+    }
+    // a must be equal to b
+    return 0;});
+  let result = sortmoviesYear.slice(0,1);
+  console.log("EXERCICE 8 ->", result);
+  return result;
   
 }
 
