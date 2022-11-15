@@ -1,3 +1,8 @@
+// Dónde se define que el archivo de test será el films.specs.js
+// Ejercicio 7 requiere de una nueva matriz???
+//      let copyMovies = new Array(...array);                 KO
+//      let copyMovies = JSON.parse(JSON.stringify(array));   OK
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
   let result =  array.map( item => item.director );
@@ -98,8 +103,7 @@ function StrDurationToMinutes(str)
 }
 
 function hoursToMinutes(array) {
-  // let copyMovies = new Array(...array);
-  let copyMovies = JSON.parse(JSON.stringify(array)); 
+  let copyMovies = array.map(a => {return {...a}});
   copyMovies.map( item => item.duration= StrDurationToMinutes(item.duration));
   console.log("EXERCICE 7 ->", copyMovies);
   return copyMovies;
